@@ -17,4 +17,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main() # what is this if condition doing?

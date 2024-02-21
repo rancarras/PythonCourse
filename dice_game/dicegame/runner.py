@@ -12,7 +12,7 @@ class GameRunner:
 
     def __init__(self):
         self.dice = Die.create_dice(5)
-        self.reset()
+        self.reset() # should it really reset here? every time?
 
     def reset(self):
         self.round = 1
@@ -20,9 +20,11 @@ class GameRunner:
         self.loses = 0
 
     def answer(self):
-        total = 0
+        total = 0 
         for die in self.dice:
-            total += 1
+            #always adds up to 5, not the actual sum
+            #total += 1
+            total += die.value
         return total
 
     @classmethod
