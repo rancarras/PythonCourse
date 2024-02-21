@@ -4,6 +4,6 @@ class Fish:
 		self.members = ['Goldfish', 'Tuna', 'Sardine']
 
 	def printMembers(self):
-		print('Printing members of the Birds class')
+		print('Printing members of the Fish class')
 		for member in self.members:
 			print('\t%s ' % member)

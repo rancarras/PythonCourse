@@ -5,6 +5,6 @@ class Birds:
 		self.members = ['Sparrow', 'Robin', 'Duck']
 
 	def printMembers(self):
-		print('Printing members of the harmless Birds class')
+		print('Printing members of the Dangerous Birds class')
 		for member in self.members:
 			print('\t%s ' % member)
