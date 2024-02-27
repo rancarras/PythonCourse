@@ -41,3 +41,4 @@ class Die:
     @classmethod
     def create_dice(cls, n):
         return [cls() for _ in range(n)]
+        #the line above is executed 3 times in a row. why?
