@@ -1,0 +1,40 @@
+---README---
+line 27 takes the longest time to execute - the reason being that both the indexing and mulitplication takes time.
+This is the first thing that I would try to improve.
+------------
+
+Wrote profile results to matmult.py.lprof
+Timer unit: 1e-06 s
+
+Total time: 16.643 s
+File: matmult.py
+Function: bop at line 6
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     6                                           @profile
+     7                                           def bop():
+     8       251         95.3      0.4      0.0      for i in range(N):
+     9       250     386569.1   1546.3      2.3          X.append([random.randint(0,100) for r in range(N)])
+    10                                           
+    11                                               # Nx(N+1) matrix
+    12         1          0.3      0.3      0.0      Y = []
+    13       251         93.7      0.4      0.0      for i in range(N):
+    14       250     380744.2   1523.0      2.3          Y.append([random.randint(0,100) for r in range(N+1)])
+    15                                           
+    16                                               # result is Nx(N+1)
+    17         1          0.3      0.3      0.0      result = []
+    18       251         74.4      0.3      0.0      for i in range(N):
+    19       250        383.4      1.5      0.0          result.append([0] * (N+1))
+    20                                           
+    21                                               # iterate through rows of X
+    22       251         86.2      0.3      0.0      for i in range(len(X)):
+    23                                                   # iterate through columns of Y
+    24     63000      17900.0      0.3      0.1              for j in range(len(Y[0])):
+    25                                                           # iterate through rows of Y
+    26  15750250    4632227.5      0.3     27.8                  for k in range(len(Y)):                
+    27  15687500   11224818.8      0.7     67.4                      result[i][j] += X[i][k] * Y[k][j]
+    28                                           
+    29                                               #for r in result:
+    30                                               #print(r)
+

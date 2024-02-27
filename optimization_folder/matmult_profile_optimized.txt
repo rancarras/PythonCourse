@@ -1,0 +1,42 @@
+---README---
+The code was slightly improved (1.5s difference) by removing the indexing of the result matrix, instead placing in on the outside
+of the innermost for-loop. It still takes up 62% of the time.
+------------
+
+Wrote profile results to matmult_copy1.py.lprof
+Timer unit: 1e-06 s
+
+Total time: 13.9636 s
+File: matmult_copy1.py
+Function: bop at line 6
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     6                                           @profile
+     7                                           def bop():
+     8       251         91.1      0.4      0.0      for i in range(N):
+     9       250     352275.5   1409.1      2.5          X.append([random.randint(0,100) for r in range(N)])
+    10                                           
+    11                                               # Nx(N+1) matrix
+    12         1          0.2      0.2      0.0      Y = []
+    13       251        122.1      0.5      0.0      for i in range(N):
+    14       250     357061.4   1428.2      2.6          Y.append([random.randint(0,100) for r in range(N+1)])
+    15                                           
+    16                                               # result is Nx(N+1)
+    17         1          0.4      0.4      0.0      result = []
+    18       251         70.7      0.3      0.0      for i in range(N):
+    19       250        359.3      1.4      0.0          result.append([0] * (N+1))
+    20                                           
+    21                                               # iterate through rows of X
+    22       251         74.8      0.3      0.0      for i in range(len(X)):
+    23                                                   # iterate through columns of Y
+    24     63000      20543.7      0.3      0.1              for j in range(len(Y[0])):
+    25     62750      17046.5      0.3      0.1                  product = 0
+    26                                                           # iterate through rows of Y
+    27  15750250    4511220.3      0.3     32.3                  for k in range(len(Y)):                
+    28  15687500    8676156.4      0.6     62.1                      product += X[i][k] * Y[k][j]
+    29     62750      28534.3      0.5      0.2                  result[i][j] = product
+    30                                           
+    31                                               #for r in result:
+    32                                               #print(r)
+

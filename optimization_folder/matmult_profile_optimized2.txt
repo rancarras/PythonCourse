@@ -1,0 +1,17 @@
+---README---
+Best results are obtained with numpy!
+------------
+
+Wrote profile results to matmult_copy2.py.lprof
+Timer unit: 1e-06 s
+
+Total time: 0.0128012 s
+File: matmult_copy2.py
+Function: multi at line 15
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    15                                           @profile
+    16                                           def multi():
+    17         1      12801.2  12801.2    100.0      result = np.dot(X, Y)
+
