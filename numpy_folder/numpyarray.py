@@ -81,5 +81,6 @@ print(Z.dtype)
 A = np.arange(9).reshape(3,3)
 B = A + 1
 C = np.dot(A,B)
-D= np.diagonal(C)
+D = np.diagonal(C)
 print(D)
+
