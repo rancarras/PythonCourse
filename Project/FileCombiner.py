@@ -38,7 +38,7 @@ def main():
     formatted_names = [f"{name:15}" for name in column_name]
     with open("columns" + str(name_part), "w") as txt_file:
         for i in range(len(formatted_names)):
-            txt_file.write(formatted_names[i] + "       " + formatted_names[i] + '\t')
+            txt_file.write(formatted_names[i] + '\t' + formatted_names[i] + '\t')
 
 if __name__ == "__main__":
     main()
